@@ -1,0 +1,68 @@
+.weekly-schedule {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.day-card {
+  overflow: hidden;
+  background: white;
+  border: 1px solid #d7e6ee;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px #102a430d;
+}
+
+.dark .day-card {
+  background: #102a3b;
+  border-color: #24465a;
+}
+
+.day-card > h2 {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  color: white;
+  background: linear-gradient(135deg, #087ea4, #22b8cf);
+  font-size: 1.05rem;
+}
+
+.weekly-session {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid #e6f0f4;
+}
+
+.weekly-session:last-child {
+  border-bottom: 0;
+}
+
+.session-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.weekly-session small {
+  display: block;
+  margin-top: 0.35rem;
+  color: #087ea4;
+  font-weight: 700;
+}
+
+.weekly-session p {
+  margin: 0.45rem 0 0;
+  color: #627d98;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 850px) {
+  .weekly-schedule {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .weekly-schedule {
+    grid-template-columns: 1fr;
+  }
+}

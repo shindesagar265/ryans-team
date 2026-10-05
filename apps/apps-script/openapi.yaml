@@ -1,0 +1,16 @@
+openapi: 3.0.3
+info: { title: SwimWave Apps Script API, version: 1.0.0 }
+servers: [{ url: https://script.google.com/macros/s/{deploymentId}/exec }]
+paths:
+  /exec?action=health: { get: { summary: API readiness, responses: { '200': { description: Healthy }, '503': { description: Unhealthy } } } }
+  /exec?action=classes: { get: { summary: List classes, responses: { '200': { description: Classes } } }, post: { summary: Create or update class, responses: { '200': { description: Updated }, '201': { description: Created } } } }
+  /exec?action=enrollments: { post: { summary: Enroll swimmer, responses: { '201': { description: Created }, '409': { description: Conflict }, '422': { description: Invalid } } } }
+  /exec?action=dashboard: { get: { summary: Dashboard, responses: { '200': { description: Metrics } } } }
+  /exec?action=students: { get: { summary: List students, responses: { '200': { description: Students } } }, post: { summary: Create or update student, responses: { '200': { description: Updated }, '201': { description: Created } } } }
+  /exec?action=attendance: { post: { summary: Record attendance, responses: { '200': { description: Recorded } } } }
+  /exec?action=messageTemplates: { get: { summary: List templates, responses: { '200': { description: Templates } } }, post: { summary: Save template, responses: { '200': { description: Updated }, '201': { description: Created } } } }
+  /exec?action=whatsappLink: { post: { summary: Prepare WhatsApp URL, responses: { '200': { description: URL }, '404': { description: Missing template } } } }
+  /exec?action=register: { post: { summary: Register, responses: { '201': { description: Session } } } }
+  /exec?action=login: { post: { summary: Login, responses: { '200': { description: Session } } } }
+  /exec?action=me: { get: { summary: Current user, responses: { '200': { description: User } } } }
+  /exec?action=logout: { post: { summary: Logout, responses: { '200': { description: Logged out } } } }

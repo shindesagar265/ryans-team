@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+.azure/
+.github/agents/
+.env
+.env.local
+.clasp.json
+.DS_Store
+*.log
+*.tsbuildinfo
+apps/portal/.vite/
+apps/apps-script/.clasp.json
