@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "npm run build -w @swimwave/shared && npm run build -w @swimwave/apps-script && npm run build -w @swimwave/portal",
-    "test": "npm run test -w @swimwave/shared && npm run test -w @swimwave/apps-script && npm run test -w @swimwave/portal",
+    "test": "npm run build -w @swimwave/shared && npm run test -w @swimwave/shared && npm run test -w @swimwave/apps-script && npm run test -w @swimwave/portal",
     "typecheck": "npm run build -w @swimwave/shared && npm run typecheck -w @swimwave/apps-script && npm run typecheck -w @swimwave/portal",
     "format": "prettier --write .",
     "lint": "eslint ."
