@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import App from '../App';
@@ -23,7 +23,12 @@ describe('Swimming portal', () => {
   });
 
   it('renders the empty schedule returned by the live API', async () => {
+    vi.setSystemTime(new Date('2026-10-06T04:00:00.000Z'));
     renderApp('/schedule');
+    const schedule = screen.getByRole('region', { name: /weekly schedule starting today/i });
+    const days = within(schedule).getAllByRole('article');
+    expect(within(days[0]!).getByRole('heading', { name: /tuesday today/i })).toBeInTheDocument();
+    expect(within(days[1]!).getByRole('heading', { name: 'Wednesday' })).toBeInTheDocument();
     expect(await screen.findByRole('heading', { name: /nothing here yet/i })).toBeInTheDocument();
   });
 
